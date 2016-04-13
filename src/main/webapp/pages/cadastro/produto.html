@@ -1,0 +1,124 @@
+<div ng-controller="ProdutoCadController as produtoCtrl">
+    <h3>Cadastro de Produto</h3>
+    <ol class="breadcrumb">
+        <li>Cadastro</li>
+        <li class="active">Produto</li>
+    </ol>
+
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            <div class="row">
+
+                <div class="col-sm-9 form-group">
+                    <label for="fornecedor">Fornecedor</label>
+                    <input type="text" class="form-control" id="fornecedor" ng-model="produtoCtrl.produto.fornecedor.nome">
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-3 form-group">
+                    <label for="Categoria">Categoria</label>
+                    <select id="Categoria" class="form-control" ng-model="produtoCtrl.produto.categoria.nome">
+                        <option value="Perfumaria">Perfumaria</option>
+                        <option value="Natura Todo Dia">Natura Todo Dia</option>
+                        <option value="Natura Tez">Natura Tez</option>
+                        <option value="Natura Chronos">Natura Chronos</option>
+                    </select>
+                </div>
+
+                <div class="col-sm-4 form-group">
+                    <label for="produto">Produto</label>
+                    <input type="text" class="form-control" id="produto" ng-model="produtoCtrl.produto.nome">
+                </div>
+
+                <div class="col-sm-2 form-group">
+                    <label for="validade">Validade</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="validade" ng-model="produtoCtrl.produto.validade">
+                        <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button>
+                    </span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-3 form-group">
+                    <label for="quantidade">Quantidade</label>
+                    <input type="text" class="form-control" id="quantidade" placeholder="0" ng-model="produtoCtrl.produto.quantidade">
+                </div>
+
+                <div class="col-sm-2 form-group">
+                    <label for="preco1">Preço I</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">R$</span>
+                        <input type="text" class="form-control" id="preco1" placeholder="00,00" ng-model="produtoCtrl.produto.valorCompra">
+                    </div>
+                </div>
+
+
+                <div class="col-sm-2 form-group">
+                    <label for="preco2">Preço II</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">R$</span>
+                        <input type="text" class="form-control" id="preco2" placeholder="00,00" ng-model="produtoCtrl.produto.valorVenda">
+                    </div>
+                </div>
+
+
+                <div class="col-sm-2 form-group">
+                    <label for="total">Total</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">R$</span>
+                        <input type="text" class="form-control" id="total" placeholder="00,00" ng-model="produtoCtrl.produto.valorTotal">
+                    </div>
+                </div>
+
+                <div class="col-sm-9 form-group">
+                    <button class="btn btn-success pull-right" ng-click="produtoCtrl.salvar()">Salvar</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <table class="table table-striped table-hover">
+                <tr>
+                    <th>Fornecedor</th>
+                    <th>Categoria</th>
+                    <th>Produto</th>
+                    <th>Validade</th>
+                    <th>Quantidade</th>
+                    <th>Preço I</th>
+                    <th>Preço II</th>
+                    <th>Total</th>
+                    <th>Ações</th>
+                </tr>
+                <tr ng-repeat="item in produtoCtrl.produtos track by $index">
+                    <td>{{item.fornecedor.nome}}</td>
+                    <td>{{item.categoria.nome}}</td>
+                    <td>{{item.nome}}</td>
+                    <td>{{item.validade}}</td>
+                    <td>{{item.quantidade}}</td>
+                    <td>{{item.valorCompra}}</td>
+                    <td>{{item.valorVenda}}</td>
+                    <td>{{item.valorTotal}}</td>
+                    <td>
+                        <button class="btn btn-default" ng-click="produtoCtrl.editar($index)"><i class="fa fa-pencil"></i></button>
+                        <button class="btn btn-danger" ng-click="produtoCtrl.deletar($index)"><i class="fa fa-times"></i></button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

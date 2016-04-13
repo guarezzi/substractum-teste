@@ -1,0 +1,18 @@
+<nav class="pull-right" >
+  <ul class="pagination">
+    <li class="disabled" ng-class="{'disabled': currentPage == 1, '': currentPage > 1}" title="Voltar uma página">
+      <a href="" aria-label="Previous" ng-click="setPage(currentPage - 1)">
+        <span aria-hidden="true">Anterior</span>
+      </a>
+    </li>
+    <li ng-repeat="page in pages" ng-class="{'active': page == currentPage, '': page != currentPage}" title="Ir para a página {{page}}">
+        <a href="" ng-click="setPage(page)">{{page}}</a>
+    </li>
+      
+    <li ng-class="{'disabled': currentPage == pages.length, '': currentPage < pages.length}" title="Avançar uma página">
+      <a href="" aria-label="Next" ng-click="setPage(currentPage + 1)">
+        <span aria-hidden="true">Próximo</span>
+      </a>
+    </li>
+  </ul>
+</nav>
