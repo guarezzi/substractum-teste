@@ -1,5 +1,7 @@
 package application.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,10 @@ public class UserService {
 	public boolean deleteUser(User user){
 		this.dao.delete(user);
 		return this.simpleConditional(user.getId_user() == null);
+	}
+	
+	public List<User> findAll(){
+		return (List<User>) this.dao.findAll();
 	}
 	
 	private boolean simpleConditional(boolean value){
