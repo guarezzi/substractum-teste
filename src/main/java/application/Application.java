@@ -45,14 +45,12 @@ public class Application extends SpringBootServletInitializer {
 			http.httpBasic()
 					.and()
 					.authorizeRequests()
-					.antMatchers("/index.html/**",
-								 "/lib/**",
-								 "/app/modules/portal/**" 
-								 ).permitAll()
-					.anyRequest().authenticated()
-					.and()
-					.formLogin().loginPage("/index.html").permitAll()
-					.and()
+					.antMatchers("/index.html/**", "/lib/**",
+							"/app/modules/portal/**").permitAll().anyRequest()
+					.authenticated().and().formLogin().loginPage("/index.html")
+					.usernameParameter("username").passwordParameter("password")
+					.permitAll().and()
+					.logout().and()
 					.addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class)
 					.csrf().csrfTokenRepository(this.csrfTokenRepository());
 		}
@@ -62,19 +60,22 @@ public class Application extends SpringBootServletInitializer {
 			repository.setHeaderName("X-XSRF-TOKEN");
 			return repository;
 		}
+
+		@Autowired
+		DataSource dataSource;
+
+		// http://docs.spring.io/spring-security/site/docs/3.0.x/reference/springsecurity-single.html
+
+		@Autowired
+		public void configAuthentication(AuthenticationManagerBuilder auth)
+				throws Exception {
+			auth.jdbcAuthentication()
+					.dataSource(this.dataSource)
+					.usersByUsernameQuery(
+							"select username,password, enabled from users where username=?")
+					.authoritiesByUsernameQuery(
+							"select username, role from user_roles where username=?");
+		}
 	}
-	
-	@Autowired
-	DataSource dataSource;
-	
-//	http://docs.spring.io/spring-security/site/docs/3.0.x/reference/springsecurity-single.html
-	
-	@Autowired
-	public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
-		auth.jdbcAuthentication().dataSource(this.dataSource)
-		.usersByUsernameQuery(
-			"select name, password from user where name=?")
-		.authoritiesByUsernameQuery(
-			"select username, role from user_roles where name=?");
-	}
+
 }

@@ -1,5 +1,6 @@
 package application.controllers;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +33,13 @@ public class UserController {
 		return this.userService.findAll();
 	}
 	
+//	@RequestMapping("/current-user")
+//	public User currentUser(){
+//		return new User();
+//	}
+	
 	@RequestMapping("/current-user")
-	public User currentUser(){
-		return new User();
+	public Principal user(Principal user) {
+		return user;
 	}
 }

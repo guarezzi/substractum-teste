@@ -37,7 +37,7 @@ angular.module('hello', [ 'ngRoute' ])
 	        + btoa(credentials.username + ":" + credentials.password)
 	    } : {};
 
-	    $http.get('/user', {headers : headers}).then(function(response) {
+	    $http.get('/user/current-user', {headers : headers}).then(function(response) {
 	      if (response.data.name) {
 	        $rootScope.authenticated = true;
 	      } else {
