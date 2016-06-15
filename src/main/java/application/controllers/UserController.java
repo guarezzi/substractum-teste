@@ -33,11 +33,6 @@ public class UserController {
 		return this.userService.findAll();
 	}
 	
-//	@RequestMapping("/current-user")
-//	public User currentUser(){
-//		return new User();
-//	}
-	
 	@RequestMapping("/current-user")
 	public Principal user(Principal user) {
 		return user;

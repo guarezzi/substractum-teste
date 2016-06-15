@@ -1,40 +1,37 @@
 package application.models;
 
+import java.util.List;
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name="user")
+@Table(name="users")
 public class User {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id_user;
-	
-	@NotNull
-	private String name;
+	private String username;
 	
 	@NotNull
 	private String password;
+	
+	@NotNull
+	private int enabled;
+	
+	@OneToMany(targetEntity=UserRoles.class)
+	@JoinColumn(name="username")
+	private List<UserRoles> roles;
 
-	public Long getId_user() {
-		return this.id_user;
+	public String getUsername() {
+		return this.username;
 	}
 
-	public void setId_user(Long id_user) {
-		this.id_user = id_user;
-	}
-
-	public String getName() {
-		return this.name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -44,5 +41,21 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
+	public int getEnabled() {
+		return this.enabled;
+	}
+
+	public void setEnabled(int enabled) {
+		this.enabled = enabled;
+	}
+
+	public List<UserRoles> getRoles() {
+		return this.roles;
+	}
+
+	public void setRoles(List<UserRoles> roles) {
+		this.roles = roles;
+	}
+
 }

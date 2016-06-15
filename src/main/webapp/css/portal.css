@@ -1,0 +1,74 @@
+/* Page structure configuration */
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    top: 0px;
+    left: 0px;
+    min-width: 1300px;
+}
+
+.centered-box {
+    margin-top: 12%;
+}
+
+.centered-box>div {
+    border: 1px solid lightblue;
+    border-radius: 5px;
+    padding-top: 10px;
+}
+
+.menu-list,
+.menu-list ul {
+    list-style: none;
+}
+
+.menu-list a {
+    color: black;
+    text-decoration: none;
+}
+
+#indexLogo {
+    height: 150px;
+    background-image: url('../img/logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.ng-cloak#loading {
+    display: inherit;
+}
+
+.shadown-efect {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.soft-board {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 10px
+}
+
+.logo {
+    width: 115px;
+    height: 115px;
+    background-image: url('../img/logo.png');
+    border-radius: 60px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    margin-top: 5px;
+    border: 1px solid green;
+    background-color: green
+}
+
+.sys-name {
+    text-align: center;
+    font-family: serif;
+}

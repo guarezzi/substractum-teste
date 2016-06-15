@@ -1,1 +1,8 @@
 /bin/
+/.gradle/
+/.settings/
+/docs/*.bak
+/Procfile/
+/build/
+/src/main/resources/application.properties
+/target/

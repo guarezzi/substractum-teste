@@ -1,21 +1,18 @@
 angular.module('hello', [ 'ngRoute' ])
-  .config(function($routeProvider, $httpProvider, $locationProvider) {
+  .constant('baseUrl', '/substractum')
+  .config(function($routeProvider, $httpProvider, $locationProvider, baseUrl) {
 
     $locationProvider.html5Mode(true);	  
-	  
-    
-    ///j_spring_security_check post passando os parametros 
-    //http://www.mkyong.com/spring-security/spring-security-form-login-using-database/
-    
-    $routeProvider.when('/home', {
-      templateUrl : '/app/modules/portal/views/home.html',
+	
+    $routeProvider.when(baseUrl + '/home', {
+      templateUrl : baseUrl + '/app/modules/portal/views/home.html',
       controller : 'home',
       controllerAs: 'controller'
-    }).when('/login', {
-      templateUrl : '/app/modules/portal/views/login.html',
+    }).when( baseUrl + '/login', {
+      templateUrl : baseUrl + '/app/modules/portal/views/login.html',
       controller : 'navigation',
       controllerAs: 'controller'
-    }).otherwise({redirectTo: '/home'});
+    }).otherwise({redirectTo: baseUrl + '/home'});
 
     $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
 
@@ -37,7 +34,7 @@ angular.module('hello', [ 'ngRoute' ])
 	        + btoa(credentials.username + ":" + credentials.password)
 	    } : {};
 
-	    $http.get('/user/current-user', {headers : headers}).then(function(response) {
+	    $http.get(baseUrl + '/user/current-user', {headers : headers}).then(function(response) {
 	      if (response.data.name) {
 	        $rootScope.authenticated = true;
 	      } else {
@@ -71,4 +68,5 @@ angular.module('hello', [ 'ngRoute' ])
 		    	$location.path("/");
 		  });
 		}
+	  
 	});
