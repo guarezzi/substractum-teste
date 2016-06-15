@@ -3,7 +3,8 @@ define([
     'ngRoute',
 
     'utils',
-    'authentication'
+    'authentication',
+    'users'
 ],
   function(angular, ngRoute){
       'use strict';
@@ -11,7 +12,8 @@ define([
     var externalModules = [
         'ngRoute',
         'utils',
-        'authenticationModule'
+        'authenticationModule',
+        'usersModule'
     ];
     
     function config($httpProvider, $locationProvider){

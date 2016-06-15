@@ -24,12 +24,12 @@ define(
                             redirectTo : '/login'
                         })
                         .when('/cadastro-usuario', {
-                            templateUrl : baseUrl + '/js/Modules/authentication/views/new-user-form.html',
-                            controller: 'AuthenticatedController',
+                            templateUrl : baseUrl + '/js/Modules/users/views/user-crud-form.html',
+                            controller: 'UsersCrudController',
                             controllerAs: 'ctrl',
                             resolve : {
-                                myCtrl : loader([baseUrl + '/js/Modules/authentication/services/AuthenticationService.js',
-                                                 baseUrl + '/js/Modules/authentication/controllers/AuthenticatedController.js' ])
+                                myCtrl : loader([baseUrl + '/js/Modules/users/services/UsersCrudService.js',
+                                                 baseUrl + '/js/Modules/users/controllers/UsersCrudController.js' ])
                             }
                         })
                         .when('/login', {

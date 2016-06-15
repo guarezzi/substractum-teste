@@ -20,6 +20,10 @@ define(['angular'], function(angular){
 					});
 		}
 		
+        function register(){
+            AuthenticationService
+        }
+        
 		vm.logout = logout;
 		getCurrentUser();
 	

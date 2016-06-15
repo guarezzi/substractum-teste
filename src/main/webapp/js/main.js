@@ -12,6 +12,7 @@ require.config({
         'BdFactoryService': 'js/Modules/utils/services/BdFactoryService',
         'AbstractService': 'js/Modules/utils/services/AbstractService',
         'authentication': 'Modules/authentication/module', 
+        'users': 'Modules/users/module',
         'app': 'app'
     },
     shim:{

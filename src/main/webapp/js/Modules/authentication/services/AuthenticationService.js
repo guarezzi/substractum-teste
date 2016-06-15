@@ -18,7 +18,8 @@ define(['angular'], function (angular) {
                 function (response) {
                     if (response.status == 200) {
                         $rootScope.authenticated = true;
-                         $window.location.href = baseUrl + '/';
+//                        user location do angular
+//                         $window.location.href = '/cadastro-usuario';
                     } else {
                         $rootScope.authenticated = false;
                     }

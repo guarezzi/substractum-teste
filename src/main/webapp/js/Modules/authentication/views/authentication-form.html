@@ -1,17 +1,76 @@
-<form role="form" ng-submit="ctrl.login()">
+<div>
     <div id="indexLogo"></div>
-    <div class="form-group">
-        <label for="username"> Usuário</label>
-        <input id="username" type="text" class="form-control" name="username" placeholder="Digite seu cpf" ng-model="ctrl.credentials.username">
-    </div>
-    <div class="form-group">
-        <label for="password">Senha</label>
-        <input id="password" type="password" class="form-control" name="password" placeholder="Digite sua senha" ng-model="ctrl.credentials.password">
-    </div>
-    <div class="form-group">
-        <p class="text-danger" ng-cloak>{{ctrl.msg}}</p>
-    </div>
-    <div class="form-group pull-right">
-            <button class="btn btn-default" type="submit" ng-disabled="!ctrl.credentials.username || !ctrl.credentials.password" title="Tecle para entrar">Entrar</button>
-    </div>
-</form>
+<!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active">
+        <a href="#login-form" aria-controls="login-form" role="tab" data-toggle="tab">Já tenho um login</a>
+    </li>
+    <li role="presentation">
+        <a href="#register-form" aria-controls="register-form" role="tab" data-toggle="tab">Quero me registrar</a>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+
+      <div role="tabpanel" class="tab-pane fade in active" id="login-form">
+        
+          <div class="panel panel-default">
+              <div class="panel-body">
+                  <form role="form" ng-submit="ctrl.login()">
+                    <div class="form-group">
+                        <label for="username"> Usuário</label>
+                        <input id="username" type="text" class="form-control" name="username" placeholder="Digite seu usuário" ng-model="ctrl.credentials.username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <input id="password" type="password" class="form-control" name="password" placeholder="Digite sua senha" ng-model="ctrl.credentials.password" required>
+                    </div>
+                    <div class="form-group pull-right">
+                            <button class="btn btn-success" type="submit" title="Tecle para entrar">Entrar</button>
+                    </div>
+                  </form>
+              </div>
+            
+              <div class="panel-footer" ng-show="ctrl.msg">
+                <div class="form-group">
+                    <p class="text-danger" ng-cloak>{{ctrl.msg}}</p>
+                </div>
+              </div>
+          </div>
+          
+      </div>
+      
+      <div role="tabpanel" class="tab-pane fade" id="register-form">
+<!--        falta corrigir-->
+          <div class="panel panel-default">
+              <div class="panel-body">
+                  <form role="form" ng-submit="ctrl.register()">
+                    <div class="form-group">
+                        <label for="username"> Usuário</label>
+                        <input id="username" type="text" class="form-control" name="username" placeholder="Digite seu usuário" ng-model="ctrl.credentials.username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <input id="password" type="password" class="form-control" name="password" placeholder="Digite sua senha" ng-model="ctrl.credentials.password" required>
+                    </div>
+                      <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input id="email" type="email" class="form-control" name="email" placeholder="Digite seu e-mail" ng-model="ctrl.credentials.email" required>
+                    </div>
+                    <div class="form-group pull-right">
+                            <button class="btn btn-success" type="submit" title="Tecle para se cadastrar">Registrar</button>
+                    </div>
+                </form>
+              </div>
+              
+              <div class="panel-footer" ng-show="ctrl.msg">
+                  <div class="form-group">
+                    <p class="text-danger" ng-cloak>{{ctrl.msg}}</p>
+                  </div>
+              </div>
+          </div>
+          
+      </div>
+  </div>
+</div>

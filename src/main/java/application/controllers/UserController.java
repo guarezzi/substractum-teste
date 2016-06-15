@@ -33,6 +33,11 @@ public class UserController {
 		return this.userService.findAll();
 	}
 	
+	@RequestMapping("/delete")
+	public void deleteUser(User user){
+		this.userService.deleteUser(user);
+	}
+	
 	@RequestMapping("/current-user")
 	public Principal user(Principal user) {
 		return user;
