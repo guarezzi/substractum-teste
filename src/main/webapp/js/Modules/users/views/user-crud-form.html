@@ -35,16 +35,21 @@
                 </div>
             </div>
         </form>
-        
-        
+        <div class="row">
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search"></i></span>
+              <input type="text" class="form-control" placeholder="pesquisar" ng-model="ctrl.search" aria-describedby="basic-addon1">
+            </div>
+        </div>
     </div>
+    
     <table class="table table-striped table-hover">
         <tr>
             <th>Nome</th>
             <th>E-mail</th>
             <th>Ações</th>
         </tr>
-        <tr ng-repeat="user in ctrl.users">
+        <tr ng-repeat="user in ctrl.users | filter:ctrl.search">
             <td>{{user.name}}</td>
             <td>{{user.username}}</td>
             <td>

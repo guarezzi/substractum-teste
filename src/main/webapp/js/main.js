@@ -1,10 +1,14 @@
 require.config({
     paths:{
         // libs   
-        'jquery': '../lib/js/jquery-1.11.3.min',
-        'bootstrap': '../lib/js/bootstrap.min',
-        'angular': '../lib/js/angular',
-        'ngRoute': '../lib/js/angular-route.min',
+//        'jquery': '../lib/js/jquery-1.11.3.min',
+//        'bootstrap': '../lib/js/bootstrap.min',
+//        'angular': '../lib/js/angular',
+//        'ngRoute': '../lib/js/angular-route.min',
+        'jquery': '../node_modules/jquery/dist/jquery.min',
+        'bootstrap': '../node_modules/bootstrap/dist/js/bootstrap.min',
+        'angular': '../node_modules/angular/angular.min',
+        'ngRoute': '../node_modules/angular-route/angular-route.min',
 
         // modules
         'providers': 'providers',

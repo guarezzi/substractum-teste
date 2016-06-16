@@ -19,7 +19,10 @@ define(['angular',
      }
     
     function config($httpProvider, $locationProvider) {
-        $locationProvider.html5Mode(true);
+        $locationProvider.html5Mode({
+          enabled: true,
+          requireBase: false
+        });
         // disable authentication server alert
         $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
     }
