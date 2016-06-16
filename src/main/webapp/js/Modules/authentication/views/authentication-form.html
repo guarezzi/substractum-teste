@@ -1,5 +1,4 @@
 <div>
-    <div id="indexLogo"></div>
 <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active">
@@ -20,7 +19,7 @@
                   <form role="form" ng-submit="ctrl.login()">
                     <div class="form-group">
                         <label for="username"> Usuário</label>
-                        <input id="username" type="text" class="form-control" name="username" placeholder="Digite seu usuário" ng-model="ctrl.credentials.username" required>
+                        <input id="username" type="email" class="form-control" name="username" placeholder="Digite seu e-mail" ng-model="ctrl.credentials.username" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Senha</label>
@@ -42,13 +41,12 @@
       </div>
       
       <div role="tabpanel" class="tab-pane fade" id="register-form">
-<!--        falta corrigir-->
           <div class="panel panel-default">
               <div class="panel-body">
                   <form role="form" ng-submit="ctrl.register()">
                     <div class="form-group">
-                        <label for="username"> Usuário</label>
-                        <input id="username" type="text" class="form-control" name="username" placeholder="Digite seu usuário" ng-model="ctrl.newUser.username" required>
+                        <label for="username">Nome</label>
+                        <input id="username" type="text" class="form-control" name="username" placeholder="Digite seu nome" ng-model="ctrl.newUser.name" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Senha</label>
@@ -56,7 +54,7 @@
                     </div>
                       <div class="form-group">
                         <label for="email">E-mail</label>
-                        <input id="email" type="email" class="form-control" name="email" placeholder="Digite seu e-mail" ng-model="ctrl.newUser.email" required>
+                        <input id="email" type="email" class="form-control" name="email" placeholder="Digite seu e-mail" ng-model="ctrl.newUser.username" required>
                     </div>
                     <div class="form-group pull-right">
                             <button class="btn btn-success" type="submit" title="Tecle para se cadastrar">Registrar</button>

@@ -22,7 +22,7 @@ public class UserRoles {
 	
 	@NotNull
 	@ManyToOne(targetEntity=User.class)
-	@JoinColumn(name="username")
+	@JoinColumn(name="id_user")
 	private User user;
 
 	public int getUser_role_id() {

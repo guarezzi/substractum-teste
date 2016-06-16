@@ -28,7 +28,7 @@ define(['angular'], function(angular){
             vm.newUser = {
                 username: undefined,
                 password: undefined,
-                email: undefined
+                name: undefined
             }
         }
         eraserNewUser();

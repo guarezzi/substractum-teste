@@ -27,19 +27,26 @@ public class UserService {
 	}
 	
 	public boolean saveUser(User user){
-		user.setPassword(this.passwordEncoder.encode(user.getPassword().trim()));
+		if(user.getId_user() > 0){
+			User oldUser = this.dao.findOne(user.getId_user());
+			if(!user.getPassword().isEmpty() && !oldUser.getPassword().equals(user.getPassword())){
+				user.setPassword(this.passwordEncoder.encode(user.getPassword().trim()));
+			}else if (user.getPassword().isEmpty()) {
+				user.setPassword(oldUser.getPassword());
+			}
+		} else {
+			user.setPassword(this.passwordEncoder.encode(user.getPassword().trim()));			
+		}
 		user.setEnabled(1);
 		this.dao.save(user);
 		this.saveUserRoles(user);
 		return true;
 	}
 	
-	/* WARNING - THIS METHOD WAS DONE WITHOUT THINK ABOUT USER ROLES
-	 * I HIGHLY RECOMMEND REFACTOR THIS METHOD IF USER ROLES ARE CONSIDERED
-	 */
 	public boolean saveUserRoles(User user){
 		UserRoles roles = userRolesService.getByUser(user);
-		if(roles.getUser().getUsername().isEmpty()){
+		if(roles == null){
+			roles = new UserRoles();
 			roles.setUser(user);
 			roles.setRole("ROLE_ADMIN");
 			userRolesService.saveUserRoles(roles);			

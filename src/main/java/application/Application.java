@@ -80,7 +80,7 @@ public class Application extends SpringBootServletInitializer {
 			JdbcDaoImpl jdbcImpl = new JdbcDaoImpl();
 			jdbcImpl.setDataSource(this.dataSource);
 			jdbcImpl.setUsersByUsernameQuery("SELECT username, password, enabled FROM users WHERE username=?");
-			jdbcImpl.setAuthoritiesByUsernameQuery("select username, role from user_roles where username=?");
+			jdbcImpl.setAuthoritiesByUsernameQuery("select u.username, r.role from user_roles r, users u where r.id_user = u.id_user and u.username=?");
 			return jdbcImpl;
 		}
 

@@ -1,6 +1,8 @@
 package application.models;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -10,6 +12,10 @@ import javax.validation.constraints.NotNull;
 public class User {
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private long id_user;
+	
+	@NotNull
 	private String username;
 	
 	@NotNull
@@ -19,7 +25,15 @@ public class User {
 	private int enabled;
 	
 	@NotNull
-	private String email;
+	private String name;
+	
+	public long getId_user() {
+		return id_user;
+	}
+
+	public void setId_user(int id_user) {
+		this.id_user = id_user;
+	}
 
 	public String getUsername() {
 		return this.username;
@@ -45,12 +59,12 @@ public class User {
 		this.enabled = enabled;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getName() {
+		return name;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 }
