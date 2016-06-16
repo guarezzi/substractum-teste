@@ -32,9 +32,9 @@
                   </form>
               </div>
             
-              <div class="panel-footer" ng-show="ctrl.msg">
+              <div class="panel-footer" ng-show="ctrl.loginMsg.text">
                 <div class="form-group">
-                    <p class="text-danger" ng-cloak>{{ctrl.msg}}</p>
+                    <p class="text-{{ctrl.loginMsg.type}}" ng-cloak>{{ctrl.loginMsg.text}}</p>
                 </div>
               </div>
           </div>
@@ -48,15 +48,15 @@
                   <form role="form" ng-submit="ctrl.register()">
                     <div class="form-group">
                         <label for="username"> Usuário</label>
-                        <input id="username" type="text" class="form-control" name="username" placeholder="Digite seu usuário" ng-model="ctrl.credentials.username" required>
+                        <input id="username" type="text" class="form-control" name="username" placeholder="Digite seu usuário" ng-model="ctrl.newUser.username" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Senha</label>
-                        <input id="password" type="password" class="form-control" name="password" placeholder="Digite sua senha" ng-model="ctrl.credentials.password" required>
+                        <input id="password" type="password" class="form-control" name="password" placeholder="Digite sua senha" ng-model="ctrl.newUser.password" required>
                     </div>
                       <div class="form-group">
                         <label for="email">E-mail</label>
-                        <input id="email" type="email" class="form-control" name="email" placeholder="Digite seu e-mail" ng-model="ctrl.credentials.email" required>
+                        <input id="email" type="email" class="form-control" name="email" placeholder="Digite seu e-mail" ng-model="ctrl.newUser.email" required>
                     </div>
                     <div class="form-group pull-right">
                             <button class="btn btn-success" type="submit" title="Tecle para se cadastrar">Registrar</button>
@@ -64,9 +64,9 @@
                 </form>
               </div>
               
-              <div class="panel-footer" ng-show="ctrl.msg">
+              <div class="panel-footer" ng-show="ctrl.registerMsg.text">
                   <div class="form-group">
-                    <p class="text-danger" ng-cloak>{{ctrl.msg}}</p>
+                    <p class="text-{{ctrl.registerMsg.type}}" ng-cloak>{{ctrl.registerMsg.text}}</p>
                   </div>
               </div>
           </div>

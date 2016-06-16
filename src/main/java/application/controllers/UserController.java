@@ -4,42 +4,44 @@ import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import application.models.User;
 import application.services.UserService;
 
 @RestController
-@RequestMapping(value="/user", method=RequestMethod.GET)
+@RequestMapping("/user")
 public class UserController {
 
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping("/save")
-	public void save(User user){
+	@RequestMapping(value="/save", method=RequestMethod.POST)
+	public void save(@RequestBody User user){
 		this.userService.saveUser(user);
 	}
 	
-	@RequestMapping("/get")
-	public void get(Long id){
+	@RequestMapping(value="/get", method=RequestMethod.POST)
+	public void get(@RequestBody Long id){
 		this.userService.getUserById(id);
 	}
 	
-	@RequestMapping("/list")
-	public List<User> list(){
+	@RequestMapping(value="/list", method=RequestMethod.POST)
+	public @ResponseBody List<User> list(){
 		return this.userService.findAll();
 	}
 	
-	@RequestMapping("/delete")
-	public void deleteUser(User user){
+	@RequestMapping(value="/delete", method=RequestMethod.POST)
+	public void deleteUser(@RequestBody User user){
 		this.userService.deleteUser(user);
 	}
 	
-	@RequestMapping("/current-user")
-	public Principal user(Principal user) {
+	@RequestMapping(value="/current-user", method=RequestMethod.GET)
+	public @ResponseBody Principal user(Principal user) {
 		return user;
 	}
 }

@@ -17,6 +17,9 @@ public class UserService {
 	private UserRepository dao;
 	
 	@Autowired
+	private UserRolesService userRolesService;
+	
+	@Autowired
     PasswordEncoder passwordEncoder;
 	
 	public User getUserById(Long id){
@@ -25,6 +28,7 @@ public class UserService {
 	
 	public boolean saveUser(User user){
 		user.setPassword(this.passwordEncoder.encode(user.getPassword().trim()));
+		user.setEnabled(1);
 		this.dao.save(user);
 		this.saveUserRoles(user);
 		return true;
@@ -34,6 +38,7 @@ public class UserService {
 		UserRoles roles = new UserRoles();
 		roles.setUser(user);
 		roles.setRole("ROLE_ADMIN");
+		userRolesService.saveUserRoles(roles);
 		return this.simpleConditional(roles.getUser_role_id() > 0);
 	}
 	

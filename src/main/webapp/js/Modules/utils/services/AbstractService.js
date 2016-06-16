@@ -1,4 +1,4 @@
-define(['angular', 'BdFactoryService'], function(angular){
+define(['angular'], function(angular){
     'use strict';
     
     angular.module('utils').service('AbstractService', AbstractService);

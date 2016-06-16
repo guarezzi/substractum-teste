@@ -18,8 +18,7 @@ define(['angular'], function (angular) {
                 function (response) {
                     if (response.status == 200) {
                         $rootScope.authenticated = true;
-//                        user location do angular
-//                         $window.location.href = '/cadastro-usuario';
+                        $location.path( '/cadastro-usuario' );
                     } else {
                         $rootScope.authenticated = false;
                     }
@@ -31,7 +30,7 @@ define(['angular'], function (angular) {
         }
 
         function getCurrentUser() {
-            return $http.get(baseUrl + '/user/current-user');
+            return $http.post(baseUrl + '/user/current-user');
         }
 
         function logout() {

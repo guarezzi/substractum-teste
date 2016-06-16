@@ -1,5 +1,6 @@
 define(['angular',
-        'providers'], 
+        'providers',
+        'utils'], 
        function(angular, providers){
     'use strict';
     

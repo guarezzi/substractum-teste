@@ -1,11 +1,7 @@
 package application.models;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -22,9 +18,8 @@ public class User {
 	@NotNull
 	private int enabled;
 	
-	@OneToMany(targetEntity=UserRoles.class)
-	@JoinColumn(name="username")
-	private List<UserRoles> roles;
+	@NotNull
+	private String email;
 
 	public String getUsername() {
 		return this.username;
@@ -50,12 +45,12 @@ public class User {
 		this.enabled = enabled;
 	}
 
-	public List<UserRoles> getRoles() {
-		return this.roles;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setRoles(List<UserRoles> roles) {
-		this.roles = roles;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-
+	
 }

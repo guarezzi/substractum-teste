@@ -9,8 +9,7 @@ require.config({
         // modules
         'providers': 'providers',
         'utils': 'Modules/utils/module',
-        'BdFactoryService': 'js/Modules/utils/services/BdFactoryService',
-        'AbstractService': 'js/Modules/utils/services/AbstractService',
+        
         'authentication': 'Modules/authentication/module', 
         'users': 'Modules/users/module',
         'app': 'app'
