@@ -1,27 +1,7 @@
-
-.nav-bar-brand {
-	width: 25px;
-    height: 25px;
+.color-white {
+    color: white
 }
 
-/* icons colors */
-
-.fa-key {
-    color: goldenrod
-}
-
-.fa-line-chart {
-    color: blue
-}
-
-.fa-money {
-    color: limegreen
-}
-
-.fa-pencil {
+.color-sandybrown {
     color: sandybrown
-}
-
-.fa-sign-out {
-    color: indianred
 }

@@ -3,6 +3,7 @@ package application.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import application.models.User;
 import application.models.UserRoles;
 import application.repository.UserRolesRepository;
 
@@ -19,6 +20,10 @@ public class UserRolesService {
 	
 	public void deleteUserRoles(UserRoles userRoles){
 		this.dao.delete(userRoles);
+	}
+	
+	public UserRoles getByUser(User user){
+		return this.dao.findByUser(user);
 	}
 	
 }

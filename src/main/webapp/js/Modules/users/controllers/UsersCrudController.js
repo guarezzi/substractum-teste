@@ -4,27 +4,35 @@ define(['angular'], function(angular){
 	angular.module('usersModule')
 		.controller('UsersCrudController', UsersCrudController);
 	
-	function UsersCrudController(UsersCrudService){
+	function UsersCrudController(UsersCrudService, AuthenticationService){
 		
 		var vm = this;
-        vm.user = {
-            username: '',
-            password: '',
-            email: ''
+        
+        function initUser() {
+            vm.user = {
+                username: '',
+                password: '',
+                email: ''
+            }
         }
+        
+        initUser();
 		
         // Create and Update method
-        function register() {
-            UsersCrudService.register(vm.user).then(
+        function saveUser() {
+            UsersCrudService.saveUser(vm.user).then(
                 function(response){
-                    if(response.status == 200)
+                    if(response.status == 200) {
                         vm.msg = 'Usuário salvo com sucesso!';
+                        getAllUsers();
+                        initUser();
+                    }
                 }
             );
         }
         
-        // Edite method
-        function edite(user) {
+        // Edit method
+        function editUser(user) {
             vm.user = angular.copy(user);
         }
         
@@ -32,15 +40,17 @@ define(['angular'], function(angular){
         function deleteUser(user){
             UsersCrudService.deleteUser(user).then(
                 function(response) {
-                    if(response.status == 200)
+                    if(response.status == 200) {
                         vm.msg = 'Usuário deletado com sucesso!';
+                        getAllUsers();
+                    }
                 }
             );
         }
         
         // Read method
-        function getAll(){
-            UsersCrudService.getAll(user).then(
+        function getAllUsers(){
+            UsersCrudService.getAllUsers().then(
                 function(response){
                     if(response.status == 200)
                         vm.users = response.data;
@@ -48,10 +58,16 @@ define(['angular'], function(angular){
             );
         }
         
-		vm.register = register;
-        vm.edite = edite;
+        getAllUsers();
+        
+        function logout(){
+            AuthenticationService.logout();
+        }
+        
+		vm.saveUser = saveUser;
+        vm.editUser = editUser;
         vm.deleteUser = deleteUser;
-		getCurrentUser();
+		vm.logout = logout;
 	
 	}
 	

@@ -32,6 +32,7 @@ define(
                                     baseUrl + '/js/Modules/utils/services/BdFactoryService.js',              
                                     baseUrl + '/js/Modules/utils/services/AbstractService.js', 
                                     baseUrl + '/js/Modules/users/services/UsersCrudService.js',
+                                    baseUrl + '/js/Modules/authentication/services/AuthenticationService.js',
                                     baseUrl + '/js/Modules/users/controllers/UsersCrudController.js' 
                                 ])
                             }

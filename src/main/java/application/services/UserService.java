@@ -34,15 +34,24 @@ public class UserService {
 		return true;
 	}
 	
+	/* WARNING - THIS METHOD WAS DONE WITHOUT THINK ABOUT USER ROLES
+	 * I HIGHLY RECOMMEND REFACTOR THIS METHOD IF USER ROLES ARE CONSIDERED
+	 */
 	public boolean saveUserRoles(User user){
-		UserRoles roles = new UserRoles();
-		roles.setUser(user);
-		roles.setRole("ROLE_ADMIN");
-		userRolesService.saveUserRoles(roles);
+		UserRoles roles = userRolesService.getByUser(user);
+		if(roles.getUser().getUsername().isEmpty()){
+			roles.setUser(user);
+			roles.setRole("ROLE_ADMIN");
+			userRolesService.saveUserRoles(roles);			
+		}
 		return this.simpleConditional(roles.getUser_role_id() > 0);
 	}
 	
 	public boolean deleteUser(User user){
+		UserRoles roles = userRolesService.getByUser(user);
+		if(!roles.getRole().isEmpty()){
+			userRolesService.deleteUserRoles(roles);
+		}
 		this.dao.delete(user);
 		return true;
 	}

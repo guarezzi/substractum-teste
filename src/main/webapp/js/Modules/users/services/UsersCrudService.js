@@ -2,7 +2,6 @@ define(['angular'], function (angular) {
     'use strict';
 
     angular.module('usersModule')
-//        .constant('baseUrl', '/substract')
         .factory('UsersCrudService', UsersCrudService);
     
     UsersCrudService.$inject = ['$http', 'baseUrl', 'AbstractService'];
