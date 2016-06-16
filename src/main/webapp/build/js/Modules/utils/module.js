@@ -1,0 +1,1 @@
+define(["angular","providers"],function(a,b){"use strict";var c=a.module("utils",[]);c.config(b(c))});

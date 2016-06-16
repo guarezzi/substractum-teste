@@ -1,0 +1,1 @@
+define(["angular","providers","utils"],function(a,b){"use strict";var c=a.module("usersModule",["utils"]);c.config(b(c))});

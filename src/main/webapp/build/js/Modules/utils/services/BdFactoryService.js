@@ -1,0 +1,1 @@
+define(["angular"],function(a){"use strict";function b(a,b){function c(a,b,c){return{method:"POST",url:location.origin+"/"+b+"/"+a,headers:{"content-type":"application/json"},data:c}}function d(d,e,f){var g=a.defer(),h=g.promise;return h=b(c(d,e,f))}return{executePromise:d}}a.module("utils").factory("BdFactoryService",b),b.$inject=["$q","$http"]});

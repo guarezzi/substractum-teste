@@ -50,7 +50,9 @@ public class Application extends SpringBootServletInitializer {
 			http.httpBasic()
 					.and()
 					.authorizeRequests()
-					.antMatchers("/user/save", "/index.html/**", "/node_modules/**", "/js/*.js",
+					.antMatchers(
+							"/user/save", "/index.html/**", 
+							"/node_modules/**", "/build/js/*.js", "/build/css/*.css",
 							"/js/Modules/authentication/**/**").permitAll().anyRequest()
 					.authenticated().and().formLogin().loginPage("/index.html")
 					.usernameParameter("username")
