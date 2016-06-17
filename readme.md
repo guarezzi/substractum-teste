@@ -2,17 +2,17 @@
 
 Pré-requisitos para a instalação do ambiente são:
 
-•	Java EE 7
+* Java EE 7
 
-•	Eclipse
+* Eclipse
 
-•	Git
+* Git
 
-•	Grunt (nodejs – npm)
+* Grunt (nodejs – npm)
 
-•	MySQL - Workbench
+* MySQL - Workbench
 
-•	Wildfly 10
+* Wildfly 10
 
 # Instalação e downloads
 
@@ -24,30 +24,30 @@ Importações no Eclipse
 
 Feito o download do Eclipse Mars, esta etapa poderá ser executada de duas maneiras: efetuando o checkout do projeto pelo Git do Eclipse ou pelo Git instalado na máquina.
 
-•	Git da máquina: importe o projeto no eclipse como projeto maven existente.
+* Git da máquina: importe o projeto no eclipse como projeto maven existente.
 
-•	Checkout pelo Eclipse: importe como um projeto git, informe a url, branch, usuário e senha do github e efetue o checkout normalmente.
+* Checkout pelo Eclipse: importe como um projeto git, informe a url, branch, usuário e senha do github e efetue o checkout normalmente.
 
 # Banco de dados
 
 Ao fazer checkout do projeto, na pasta “docs” há um Modelo ER do banco de dados que mantem o versionamento do BD a cada alteração. Antes de prosseguir, verifique se o banco que será atualizado com o Modelo ER está rodando e se há um schema criado para ser atualizado. Abra o modelo ER no Workbench, clique no menu “Database” e clique na opção “Synchronize model”. Em seguida abrirá um wizard para sincronizar o Modelo ER a um schema do banco de dados existente com as seguintes etapas:
 
-•	Connection Options – defina a conexão com o banco de dados que deseja atualizar. 
+* Connection Options – defina a conexão com o banco de dados que deseja atualizar. 
 
-•	Sync Options – não há alterações necessárias nesta etapa, siga para a próxima.
+* Sync Options – não há alterações necessárias nesta etapa, siga para a próxima.
 
-•	Connect to DBMS – esta etapa é apenas uma validação da conexão configurada nos passos anteriores.
+* Connect to DBMS – esta etapa é apenas uma validação da conexão configurada nos passos anteriores.
 
-•	Select Schemata – selecione o schema do banco de dados que deve ser sincronizado.
+* Select Schemata – selecione o schema do banco de dados que deve ser sincronizado.
 
-•	Retrive Objects – esta etapa é apenas uma validação da etapa anterior.
+* Retrive Objects – esta etapa é apenas uma validação da etapa anterior.
 
-•	Select Change to Apply – nesta etapa, se o schema já possuir objetos conflitantes com o Modelo ER, o sistema irá 
+* Select Change to Apply – nesta etapa, se o schema já possuir objetos conflitantes com o Modelo ER, o sistema irá 
 indicar as mudanças e possibilitar ignorar/selecionar quais objetos deve ser sincronizados  ou não (passando sempre do modelo para o banco). Caso o schema não possuir objetos, apenas siga para a próxima etapa. Caso contrário, crie outro schema para o teste e reinicie este tutorial de banco de dados.
 
-•	Review DB Changes – nesta etapa, apenas a confirmação das mudanças que foram pré selecionadas. 
+* Review DB Changes – nesta etapa, apenas a confirmação das mudanças que foram pré selecionadas. 
 
-•	Synchronize Progress – progresso da sincronização entre o modelo e o banco de dados.
+* Synchronize Progress – progresso da sincronização entre o modelo e o banco de dados.
 Finalizado estas etapas, o banco de dados estará preparado para esta aplicação.
 Build FrontEnd
 
