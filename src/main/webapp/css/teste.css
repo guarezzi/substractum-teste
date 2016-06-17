@@ -1,0 +1,34 @@
+/* Page structure configuration */
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    top: 0px;
+    left: 0px;
+    min-width: 1300px;
+}
+
+.centered-box {
+    margin-top: 12%;
+}
+
+.centered-box>div {
+    border: 1px solid lightblue;
+    border-radius: 5px;
+    padding-top: 10px;
+}
+
+.ng-cloak#loading {
+    display: inherit;
+}
+
+.soft-board {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 10px
+}

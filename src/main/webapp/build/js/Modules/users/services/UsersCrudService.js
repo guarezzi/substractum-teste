@@ -1,1 +1,0 @@
-define(["angular"],function(a){"use strict";function b(a,b,c){var d=c(b.replace("/","")+"/user");return{getAllUsers:d.executeGetList,saveUser:d.executeSave,deleteUser:d.executeDelete}}a.module("usersModule").factory("UsersCrudService",b),b.$inject=["$http","baseUrl","AbstractService"]});

@@ -1,1 +1,0 @@
-define(["angular","ngRoute","utils","authentication","users"],function(a,b){"use strict";var c=["ngRoute","utils","authenticationModule","usersModule"];a.module("app",c)});
